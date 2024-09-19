@@ -12,5 +12,5 @@ try:
     print("poliza", datos['policy_number'])
 except:
     print(
-        "Invalid URL or some error occured while making the GET request to the specified URL"
+        "inavlida URL or some error occured while making the GET request to the specified URL"
     )

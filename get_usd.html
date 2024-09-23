@@ -16,12 +16,17 @@
     function Buscar() {
       $.ajax(
         {
-          url: $SERVER + '/usd',
+          url: $SERVER + '/usd.json',
           type: 'get',
-          accept: 'application/json',
-          contentType: 'application/json',
+          contentType: 'text/plain',
+          dataType: 'jsonp',
+          cors: true,
+          secure: true,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+          },
           beforeSend: function (request) {
-            request.setRequestHeader("Authorization", "BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTg2NTQwMzIsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJyYW1pY2hhMTZAZ21haWwuY29tIn0.zF0cKo_Q-n8a52RX_2VHfcX_LSMp53bOwQARt4fF_9nZcSOOywW2JhXg2OM9ehXGuS8wN7IzlxAoe4qR9pl4dw");
+            request.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTg2NTQwMzIsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJyYW1pY2hhMTZAZ21haWwuY29tIn0.zF0cKo_Q-n8a52RX_2VHfcX_LSMp53bOwQARt4fF_9nZcSOOywW2JhXg2OM9ehXGuS8wN7IzlxAoe4qR9pl4dw');
           },
           success: function (response) {
             console.log(JSON.stringify(response));

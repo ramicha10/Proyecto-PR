@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    var $SERVER = "https://api.estadisticasbcra.com"
+
+    $(function () {
+      Buscar();
+    })
+
+    function Buscar() {
+      $.ajax(
+        {
+          url: $SERVER + '/usd',
+          type: 'get',
+          accept: 'application/json',
+          contentType: 'application/json',
+          beforeSend: function (request) {
+            request.setRequestHeader("Authorization", "BEARER eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTg2NTQwMzIsInR5cGUiOiJleHRlcm5hbCIsInVzZXIiOiJyYW1pY2hhMTZAZ21haWwuY29tIn0.zF0cKo_Q-n8a52RX_2VHfcX_LSMp53bOwQARt4fF_9nZcSOOywW2JhXg2OM9ehXGuS8wN7IzlxAoe4qR9pl4dw");
+          },
+          success: function (response) {
+            console.log(JSON.stringify(response));
+          },
+          error: function (error) {
+            console.log(JSON.stringify(error));
+          }
+        }
+      );
+    }
+  </script>
+</body>
+
+</html>

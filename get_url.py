@@ -8,6 +8,7 @@ try:
     print("HTML:\n", r.text)
     datos = json.loads(r.text)
     print("ID tomador", datos['id'], datos['taker_name'])
+
     print("asegurado", datos['insured_name'])
     print("poliza", datos['policy_number'])
 except:
